@@ -1,0 +1,125 @@
+<!-- First Section Start -->
+
+<section class="first-section position-relative">
+  <video
+    src="assets/videos/header-video.mov"
+    width="100%"
+    loop
+    autoplay
+    [muted]="true"
+  ></video>
+  <p class="content font-32 position-absolute">
+    <span class="font-18">Be part of</span> <br />
+    <span
+      >creating a special and sustainable coastal destination Experience…</span
+    >
+    <br />
+    <a
+      class="font-16 survey-link"
+      href="https://www.surveymonkey.com/r/XYLLHDY"
+      target="_blank"
+    >
+      <img
+        src="assets/images/survey.png"
+        width="25"
+        height="25"
+        alt="survery-icon"
+        class="me-2"
+      />
+      <span class="font-18 text-nowrap">Take a survey!</span> </a
+    ><br />
+  </p>
+</section>
+<!-- First Section End -->
+
+<div class="holder">
+  <!-- Second Section Start -->
+
+  <section class="second-section">
+    <div class="cards-container">
+      <div class="card" *ngFor="let card of cards">
+        <p class="card-title" [innerHTML]="card.title"></p>
+        <div
+          class="images-container"
+          *ngFor="let img of card.images; let i = index"
+        >
+          <img class="img" [src]="img.url" *ngIf="img.isActive" @slide />
+
+          <!-- <span *ngIf="img.isActive">{{i + 1}}</span> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Second Section End -->
+
+  <!-- About Section Start -->
+  <section class="about-section">
+    <p class="bold font-18">ABOUT</p>
+    <p class="desc">
+      This Platform aims to enhance the destination's attractiveness and provide
+      a meaningful experience for tourists while promoting sustainable tourism
+      practices and raising awareness about sustainability issues.
+    </p>
+  </section>
+  <!-- About Section End -->
+
+  <!-- Management Section Start -->
+  <section class="management-section">
+    <p class="bold font-18">
+      MANAGEMENT <br />
+      STRATEGIES
+    </p>
+
+    <p class="desc">
+      Enhance and improve management sustainable methods by enlightening users
+      about innovative approaches and involving them in decision-making by
+      showing current and potential strategies and how this could help in having
+      a sustainable destination.
+    </p>
+  </section>
+  <!-- Management Section End -->
+
+  <!-- Future Goal Section Start -->
+
+  <section class="future-goal-section">
+    <div class="section-desc">
+      <p class="bold font-18">FUTURE GOAL</p>
+      <p class="desc">
+        This platform is a vital step in the implementation of ICT and IoT
+        applications that enable a fully smart destination that seeks to be
+        embedded with contemporary approaches to smart, digital cities, and
+        artificial intelligence.
+      </p>
+    </div>
+    <div class="form-container">
+      <p class="bold font-18">GET IN TOUCH</p>
+      <form>
+        <div class="form-holder">
+          <input type="text" placeholder="Name:" />
+          <input type="email" placeholder="Email:" />
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            placeholder="Message:"
+          ></textarea>
+        </div>
+        <span class="button">SUBMIT</span>
+      </form>
+    </div>
+    <!-- <button>Submit</button> -->
+  </section>
+
+  <!-- Future Goal Section End -->
+</div>
+
+<a
+  class="survey-btn"
+  href="https://www.surveymonkey.com/r/XYLLHDY
+"
+  target="_blank"
+>
+  <img src="assets/images/survey.png" alt="survery-icon" />
+  <span class="text-nowrap ms-4 font-18 bold">Take a survey!</span>
+</a>

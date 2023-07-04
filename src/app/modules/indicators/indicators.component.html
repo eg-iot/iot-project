@@ -1,0 +1,12 @@
+<div class="holder" *ngIf="!isLoading" @show>
+  <div *ngFor="let data of data">
+    <app-cells [data]="data"></app-cells>
+  </div>
+</div>
+<div
+  class="back-top d-flex align-items-center justify-content-center"
+  (click)="scrollTop()"
+  #toTopBtn
+>
+  <img src="assets/images/up.svg" width="20" height="20" alt="arrow-up-icon" />
+</div>

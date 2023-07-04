@@ -1,0 +1,31 @@
+<div
+  *ngIf="modal.isModalOpen(ID)"
+  class="modal-backdrop fade opacity-5"
+  [@overlay]
+></div>
+<div
+  *ngIf="modal.isModalOpen(ID)"
+  class="modal-container modal d-block"
+  [id]="ID"
+  [@open]
+>
+  <div
+    class="modal-dialog width-{{ width }} modal-dialog-centered"
+    role="document"
+  >
+    <div class="modal-content width-{{ width }}">
+      <div
+        class="modal-header d-flex align-items-center justify-content-center"
+        *ngIf="Header"
+      >
+        <p class="modal-title text-center font-16" [id]="ID">{{ Header }}</p>
+        <span class="close-icon position-absolute" (click)="cancelUpload()"
+          >&#10006;</span
+        >
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

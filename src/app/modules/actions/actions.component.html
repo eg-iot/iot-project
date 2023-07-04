@@ -1,0 +1,25 @@
+<div class="mt-5 p-4" *ngIf="!isLoading" @show>
+  <div class="data-row d-grid mb-4" *ngFor="let row of rows">
+    <span
+      class="row-title h-100 d-flex align-items-center justify-content-center py-3 bold"
+      [style.backgroundColor]="row.color"
+      >{{ row.symbol }} {{ row.title }}</span
+    >
+
+    <div class="data-container">
+      <div
+        class="data-section p-3"
+        *ngFor="let data of row.data; let i = index"
+      >
+        <div *ngIf="data?.length > 0; else noData">
+          <div class="w-100" *ngFor="let value of data">
+            <span class="value"> {{ value.code }} {{ value.label }} </span>
+          </div>
+        </div>
+        <ng-template #noData>
+          <span class="font-20">----</span>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

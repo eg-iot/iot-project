@@ -1,0 +1,28 @@
+<div class="nav-container sticky-top">
+  <div class="header">
+    <div class="logo font-22" routerLink="/">
+      <img src="assets/images/logo.png" alt="logo" />
+    </div>
+  </div>
+  <div class="nav-links toggled" #navContainer>
+    <div>
+      <a
+        class="font-16"
+        *ngFor="let link of links"
+        [routerLink]="link.url"
+        routerLinkActive="active"
+        (click)="toggled = false"
+      >
+        {{ link.display }}
+      </a>
+      <a
+        routerLink="/"
+        *ngIf="isAuthenticated"
+        class="font-16"
+        (click)="logOut()"
+        >LOGOUT</a
+      >
+      <a routerLink="/login" *ngIf="!isAuthenticated" class="font-16">LOGIN</a>
+    </div>
+  </div>
+</div>

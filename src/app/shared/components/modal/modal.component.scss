@@ -1,0 +1,50 @@
+.modal {
+  .modal-dialog {
+    .modal-header {
+      height: 43px;
+      border: 1px solid #ecf0f3;
+      border-radius: 5px;
+      background-color: #ecf0f3;
+
+      .modal-title {
+        height: 19px;
+        width: 224.6px;
+        color: #353f4a;
+        font-weight: 600;
+        line-height: 19px;
+      }
+
+      .modal-footer {
+        button {
+          width: 160px;
+        }
+      }
+    }
+  }
+
+  .modal-content {
+    border-radius: 12px !important;
+  }
+
+  .width-thin {
+    width: 425px;
+  }
+}
+
+.opacity-5 {
+  opacity: 0.5 !important;
+}
+.modal-container {
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  z-index: 1500;
+  visibility: visible;
+}
+
+.close-icon {
+  cursor: pointer;
+  right: 22px;
+  top: 10px;
+}

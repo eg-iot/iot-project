@@ -1,0 +1,324 @@
+<div class="holder">
+  <div class="row position-relative p-3 m-0">
+    <div
+      class="row m-0 cell-header-row"
+      [style.backgroundColor]="data.headerColor"
+    >
+      <div
+        class="p-0 d-flex align-items-center justify-content-between position-relative overflow-hidden"
+        [ngClass]="{
+          'col-md-12': !data.multipleCols,
+          'col-md-6': data.multipleCols
+        }"
+      >
+        <div class="cell-header-name bold">{{ data.leftCellName }}</div>
+        <div class="d-flex align-items-center">
+          <a
+            *ngIf="data.leftCellName === 'Destination Performance'"
+            class="m-2 location-icon"
+            href="https://earth.google.com/web/@25.60419193,34.60578773,-35835.43069675a,36861.79345821d,35y,0.0011h,0t,0r?utm_source=earth7&utm_campaign=vine&hl=en"
+            target="_blank"
+          >
+            <img
+              src="assets/images/location.png"
+              width="25"
+              height="25"
+              alt="location-ic"
+            />
+          </a>
+
+          <span
+            *ngIf="isAdmin"
+            class="icon-holder me-3"
+            (click)="
+              prepareSampleFiles(data, 'edit' + '-' + data.leftCellName, 'left')
+            "
+          >
+            <img
+              src="assets/images/upload.svg"
+              width="20"
+              height="20"
+              alt="edit-icon"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="col-md-6 p-0 d-flex align-items-center justify-content-between position-relative overflow-hidden"
+        *ngIf="data.multipleCols"
+      >
+        <div class="cell-header-name bold">
+          {{ data.rightCellName }}
+        </div>
+
+        <span
+          *ngIf="isAdmin"
+          class="icon-holder me-3"
+          (click)="
+            prepareSampleFiles(data, 'edit' + '-' + data.rightCellName, 'right')
+          "
+        >
+          <img
+            src="assets/images/upload.svg"
+            width="20"
+            height="20"
+            alt="edit-icon"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ps-0 left-col"
+      [ngClass]="{
+        'col-md-12': !data.multipleCols,
+        'col-md-6': data.multipleCols
+      }"
+    >
+      <div
+        class="cell-header-name-sm align-items-center justify-content-between"
+        [style.backgroundColor]="data.headerColor"
+      >
+        <div class="cell-header-name bold">{{ data.leftCellName }}</div>
+        <div class="d-flex align-items-center">
+          <a
+            *ngIf="data.leftCellName === 'Destination Performance'"
+            class="ms-2 location-icon"
+            href="https://earth.google.com/web/@25.60419193,34.60578773,-35835.43069675a,36861.79345821d,35y,0.0011h,0t,0r?utm_source=earth7&utm_campaign=vine&hl=en"
+            target="_blank"
+          >
+            <img
+              src="assets/images/location.png"
+              width="25"
+              height="25"
+              alt="location-ic"
+            />
+          </a>
+          <span
+            *ngIf="isAdmin"
+            class="icon-holder"
+            (click)="
+              prepareSampleFiles(data, 'edit' + '-' + data.leftCellName, 'left')
+            "
+          >
+            <img
+              src="assets/images/upload.svg"
+              width="20"
+              height="20"
+              alt="edit-icon"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="d-flex align-items-center justify-content-between flex-column table-holder my-3 w-100 p-3"
+        *ngFor="let cell of data.leftCol; let i = index"
+      >
+        <div
+          class="text-uppercase d-flex justify-content-between align-items-center w-50 p-2"
+          [ngClass]="{
+            ' w-50': !data.multipleCols,
+            'w-100': data.multipleCols
+          }"
+          *ngFor="let section of cell; let j = index"
+        >
+          <div
+            class="d-flex align-items-center position-relative label-holder"
+            appClickOutside
+            (customClickOutside)="viewList(-1)"
+          >
+            <a
+              *ngIf="section.code === 'E1-1'"
+              class="location-icon-inner position-relative"
+              href="https://www.meteoblue.com/en/weather/week/marsa-alam_egypt_352736"
+              target="_blank"
+            >
+              <img
+                class="me-2"
+                src="assets/images/globe.png"
+                width="20"
+                height="20"
+                alt="location-ic"
+              />
+            </a>
+            <a
+              *ngIf="section.code === 'E1-2'"
+              class="location-icon-inner position-relative"
+              href="https://www.meteoblue.com/en/weather/week/marsa-alam_egypt_352736"
+              target="_blank"
+            >
+              <img
+                class="me-2"
+                src="assets/images/globe.png"
+                width="20"
+                height="20"
+                alt="location-ic"
+              />
+            </a>
+            <a
+              *ngIf="section.code === 'E1-3'"
+              class="location-icon-inner position-relative"
+              href="https://allencoralatlas.org/atlas/#14.04/25.0916/34.8985"
+              target="_blank"
+            >
+              <img
+                class="me-2"
+                src="assets/images/globe.png"
+                width="20"
+                height="20"
+                alt="location-ic"
+              />
+            </a>
+            <a
+              *ngIf="section.code === 'E1-4'"
+              class="location-icon-inner position-relative"
+              href="https://seatemperature.net/current/egypt/marsa-alam-sea-temperature "
+              target="_blank"
+            >
+              <img
+                class="me-2"
+                src="assets/images/globe.png"
+                width="20"
+                height="20"
+                alt="location-ic"
+              />
+            </a>
+            <div
+              *ngIf="
+                section.code === 'E2-1' ||
+                section.code === 'E2-2' ||
+                section.code === 'E2-3'
+              "
+              class="location-icon-inner position-relative"
+            >
+              <img
+                class="me-2"
+                src="assets/images/location-black.png"
+                width="20"
+                height="20"
+                alt="location-ic"
+                (click)="viewList(j)"
+              />
+            </div>
+            <span class="section-title">
+              {{ section.code }} {{ section.label }}
+            </span>
+
+            <ul
+              class="position-absolute maps-list"
+              *ngIf="
+                section.code === 'E2-1' ||
+                section.code === 'E2-2' ||
+                section.code === 'E2-3'
+              "
+            >
+              <li>
+                <a
+                  href="https://allencoralatlas.org/atlas/#13.42/25.0980/34.8778"
+                  target="_blank"
+                  >Benthic Map</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://allencoralatlas.org/atlas/#13.42/25.0998/34.8772"
+                  target="_blank"
+                  >Geomographic Map</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="cell-container d-flex">
+            <span
+              class="cell d-flex align-items-center justify-content-center"
+              [ngClass]="{
+                highlighted: getBiggestValue(section.values) === value
+              }"
+              [style.backgroundColor]="
+                getBiggestValue(section.values) === value
+                  ? data.headerColor
+                  : 'unset'
+              "
+              [style.borderColor]="
+                getBiggestValue(section.values) === value
+                  ? data.headerColor
+                  : 'unset'
+              "
+              *ngFor="let value of section.values"
+            >
+              <span *ngIf="value / 100 > 0">
+                {{ value / 100 | percent : "1.2" }}
+              </span>
+              <span *ngIf="value / 100 <= 0">
+                {{ value / 100 | percent }}
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 ps-0 right-col" *ngIf="data.multipleCols">
+      <div
+        class="cell-header-name-sm align-items-center justify-content-between"
+        [style.backgroundColor]="data.headerColor"
+      >
+        <div class="cell-header-name bold">{{ data.rightCellName }}</div>
+        <span
+          *ngIf="isAdmin"
+          class="icon-holder me-3"
+          (click)="
+            prepareSampleFiles(data, 'edit' + '-' + data.rightCellName, 'right')
+          "
+        >
+          <img
+            src="assets/images/upload.svg"
+            width="20"
+            height="20"
+            alt="edit-icon"
+          />
+        </span>
+      </div>
+      <div
+        class="d-flex align-items-center justify-content-between flex-column table-holder w-100 my-3 p-3"
+        *ngFor="let cell of data.rightCol; let i = index"
+      >
+        <div
+          class="text-uppercase d-flex justify-content-between align-items-center w-100 p-2"
+          *ngFor="let section of cell; let j = index"
+        >
+          <span class="section-title">
+            {{ section.code }} {{ section.label }}
+          </span>
+          <div class="cell-container d-flex">
+            <span
+              class="cell d-flex align-items-center justify-content-center"
+              [ngClass]="{
+                highlighted: getBiggestValue(section.values) === value
+              }"
+              [style.backgroundColor]="
+                getBiggestValue(section.values) === value
+                  ? data.headerColor
+                  : 'unset'
+              "
+              *ngFor="let value of section.values"
+            >
+              <span *ngIf="value / 100 > 0">
+                {{ value / 100 | percent : "1.2" }}
+              </span>
+              <span *ngIf="value / 100 <= 0">
+                {{ value / 100 | percent }}
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal [ID]="modalId" [Header]="modalHeader">
+  <app-edit-modal
+    [ID]="modalId"
+    [sampleUrl]="sampleFile"
+    [uploadedFileType]="uploadedFileType"
+  ></app-edit-modal>
+</app-modal>

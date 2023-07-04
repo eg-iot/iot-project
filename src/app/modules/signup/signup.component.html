@@ -1,0 +1,192 @@
+<div class="logo">
+  <img src="assets/images/logo.png" width="150px" height="100" alt="logo" />
+</div>
+
+<form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+  <div class="form-group">
+    <label for="fName">First Name</label>
+    <input
+      type="text"
+      name="fName"
+      id="fName"
+      formControlName="firstName"
+      class="form-control"
+      [ngClass]="{
+        'invalid-input':
+          signUpForm.get('firstName')?.invalid &&
+          signUpForm.get('firstName')?.touched
+      }"
+    />
+    <p
+      class="font-14"
+      *ngIf="
+        signUpForm.get('firstName')?.invalid &&
+        signUpForm.get('firstName')?.touched
+      "
+    >
+      First Name is required!
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="lName">Last Name</label>
+    <input
+      type="text"
+      name="lName"
+      id="lName"
+      formControlName="lastName"
+      class="form-control"
+      [ngClass]="{
+        'invalid-input':
+          signUpForm.get('lastName')?.invalid &&
+          signUpForm.get('lastName')?.touched
+      }"
+    />
+    <p
+      class="font-14"
+      *ngIf="
+        signUpForm.get('lastName')?.invalid &&
+        signUpForm.get('lastName')?.touched
+      "
+    >
+      Last Name is required!
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{
+        'invalid-input':
+          signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched
+      }"
+    />
+    <p
+      class="font-14"
+      *ngIf="
+        signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched
+      "
+    >
+      Email is required!
+    </p>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <div class="position-relative">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        name="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [ngClass]="{
+          'invalid-input':
+            signUpForm.get('password')?.invalid &&
+            signUpForm.get('password')?.touched
+        }"
+      />
+      <span
+        class="position-absolute icons"
+        *ngIf="signUpForm.get('password')?.value"
+      >
+        <img
+          src="assets/images/{{ showPassword ? 'hide' : 'show' }}.png"
+          alt="hide-icon"
+          (click)="showPassword = !showPassword"
+        />
+      </span>
+    </div>
+    <p
+      class="font-14"
+      *ngIf="
+        signUpForm.get('password')?.touched &&
+        signUpForm.controls.password.errors?.['required']
+      "
+    >
+      Password is required!
+    </p>
+    <div *ngIf="!signUpForm.controls.password.errors?.['required']">
+      <p
+        class="font-14 text-danger"
+        *ngIf="signUpForm.get('password')?.touched && signUpForm.controls.password.errors?.['hasNumber']"
+      >
+        Password must contain a number!
+      </p>
+      <p
+        class="font-14 text-danger"
+        *ngIf="signUpForm.get('password')?.touched && signUpForm.controls.password.errors?.['hasUpperCase']"
+      >
+        Password must contain uppercase character!
+      </p>
+      <p
+        class="font-14 text-danger"
+        *ngIf=" signUpForm.get('password')?.touched && signUpForm.controls.password.errors?.['hasLowerCase']"
+      >
+        Password must contain lowercase character!
+      </p>
+      <p
+        class="font-14 text-danger"
+        *ngIf=" signUpForm.get('password')?.touched && signUpForm.controls.password.errors?.['strongLength']"
+      >
+        Password length must be between 5 and 15 characters
+      </p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cPassword">Confirm Password</label>
+    <div class="position-relative">
+      <input
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        name="cPassword"
+        id="cPassword"
+        formControlName="confirmPassword"
+        class="form-control"
+        [ngClass]="{
+          'invalid-input':
+            (signUpForm.get('confirmPassword')?.invalid &&
+              signUpForm.get('confirmPassword')?.touched) ||
+            signUpForm.get('confirmPassword')?.hasError('notMatched')
+        }"
+      />
+      <span
+        class="position-absolute icons"
+        *ngIf="signUpForm.get('confirmPassword')?.value"
+      >
+        <img
+          src="assets/images/{{ showConfirmPassword ? 'hide' : 'show' }}.png"
+          alt="hide-icon"
+          (click)="showConfirmPassword = !showConfirmPassword"
+        />
+      </span>
+    </div>
+
+    <p
+      class="font-14"
+      *ngIf="
+        signUpForm.get('confirmPassword')?.invalid &&
+        signUpForm.get('confirmPassword')?.touched
+      "
+    >
+      Confirm Password is required!
+    </p>
+    <p
+      class="font-14 text-danger"
+      *ngIf="
+        !signUpForm.get('confirmPassword')?.hasError('required') &&
+        signUpForm.get('confirmPassword')?.touched &&
+        signUpForm?.hasError('notMatched')
+      "
+    >
+      Confirm Password doesn't match password!
+    </p>
+  </div>
+
+  <button class="btn btn-primary w-100" [disabled]="signUpForm.invalid">
+    Sign up
+  </button>
+</form>

@@ -1,0 +1,33 @@
+<div class="edit-modal">
+  <div class="options mt-3 d-flex justify-content-center align-items-center">
+    <a class="btn btn-primary" [href]="sampleUrl" download
+      >Download Sample CSV</a
+    >
+    <button class="btn btn-outline-primary" (click)="inputFile.click()">
+      Import CSV file
+    </button>
+  </div>
+
+  <input
+    hidden
+    type="file"
+    name="upload"
+    id="upload"
+    class="form-control"
+    accept=".xlsx, .xls, .csv"
+    (change)="handleFileUpload($event)"
+    #inputFile
+  />
+  <p *ngIf="uploadedFileName" class="uploaded-file">
+    {{ uploadedFileName }}
+    <span class="cancel-icon ms-1" (click)="resetInputValue()">&#10006;</span>
+  </p>
+  <div class="text-center mt-3 footer" *ngIf="fileReady">
+    <button class="btn btn-primary upload-btn" (click)="onUpload()">
+      Upload
+    </button>
+    <button class="btn btn-outline-primary" (click)="closeModal()">
+      Cancel
+    </button>
+  </div>
+</div>

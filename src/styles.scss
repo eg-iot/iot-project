@@ -1,0 +1,92 @@
+// Global variables
+$primary_bg_color: #4bacc6;
+$secondary_bg_color: #e6b9b8;
+$card_color_1st: #77933c;
+$card_color_2nd: #604a7b;
+$card_color_3rd: #e46c0a;
+$gray_bg_color: #d9d9d9;
+
+// Fonts setup
+
+@font-face {
+  font-family: "Tajawal";
+  src: url("./assets/fonts/Tajawal-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Tajawal Bold";
+  src: url("./assets/fonts/Tajawal-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+// Global Styles
+$sizes: 34;
+
+* {
+  font-family: "Tajawal";
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.bold {
+  font-family: "Tajawal Bold";
+}
+
+@for $i from 10 through $sizes {
+  .font-#{$i} {
+    font-size: $i + px;
+  }
+}
+
+.icons {
+  top: 5px;
+  right: 10px;
+  img {
+    width: 22px;
+    cursor: pointer;
+  }
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+input {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  &.invalid-input {
+    border-color: rgb(233, 21, 21);
+    &:focus {
+      border-color: rgb(233, 21, 21);
+    }
+  }
+}
+.btn {
+  &.btn-primary {
+    background-color: $primary_bg_color;
+    border-color: $primary_bg_color;
+
+    &:hover,
+    &:active {
+      background-color: #3c8da3;
+      border-color: $primary_bg_color;
+    }
+  }
+  &.btn-outline-primary {
+    color: $primary_bg_color;
+    border-color: $primary_bg_color;
+    &:active,
+    &:hover,
+    &.active {
+      color: #fff;
+      background-color: $primary_bg_color;
+      border-color: $primary_bg_color;
+    }
+  }
+}

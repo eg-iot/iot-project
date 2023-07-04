@@ -1,0 +1,73 @@
+span {
+  cursor: pointer;
+}
+
+.edit-options {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  right: 28px;
+  top: 0px;
+}
+.icon-holder {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    border-width: 8px;
+    border-color: transparent transparent transparent #fff;
+    border-style: solid;
+    right: 20px;
+    top: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+  }
+  &::after {
+    content: "Upload XLS file";
+    position: absolute;
+    width: 120px;
+    padding: 4px 8px;
+    right: 36px;
+    top: -2px;
+    background-color: #fff;
+    border-radius: 4px;
+    color: #222;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    text-align: center;
+  }
+
+  &:hover {
+    &::after,
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &::after {
+      right: 40px;
+    }
+    &::before {
+      right: 24px;
+    }
+  }
+}
+.change-actions-container {
+  gap: 8px;
+  span {
+    border: 1px solid #fff;
+    padding: 8px;
+    border-radius: 4px;
+    background: #fff;
+    color: rgb(119, 147, 60);
+    transition: 0.3s;
+    &:hover {
+      background-color: transparent;
+      color: #fff;
+    }
+  }
+}
