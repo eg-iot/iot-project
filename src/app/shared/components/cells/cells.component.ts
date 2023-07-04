@@ -1,8 +1,8 @@
 import { AuthService } from 'src/app/core/services/auth.service';
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { IData } from '../../models/cell';
 import { ModalService } from '../modal/services/modal.service';
-import { BehaviorSubject } from 'rxjs';
+import { formatPercent } from '@angular/common';
 
 @Component({
   selector: 'app-cells',
@@ -27,9 +27,6 @@ export class CellsComponent {
       this.AuthService.getUserRole().subscribe(
         (admin) => (this.isAdmin = admin)
       );
-  }
-  tst(c: any) {
-    console.log(c);
   }
   onOptionSelected() {
     this.isEditing = true;
@@ -83,5 +80,14 @@ export class CellsComponent {
 
   getBiggestValue(array: number[]) {
     return Math.max(...array);
+  }
+
+  formateValue(value: number) {
+    if (value < 0.1) {
+      return formatPercent(value, 'en-US', '1.0');
+    } else if (value > 0.1 && value < 1) {
+      return formatPercent(value, 'en-US', '1.2');
+    } else return formatPercent(value / 100, 'en-US', '1.2');
+    return value;
   }
 }
