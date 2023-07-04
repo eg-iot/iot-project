@@ -88,6 +88,5 @@ export class CellsComponent {
     } else if (value > 0.1 && value < 1) {
       return formatPercent(value, 'en-US', '1.2');
     } else return formatPercent(value / 100, 'en-US', '1.2');
-    return value;
   }
 }

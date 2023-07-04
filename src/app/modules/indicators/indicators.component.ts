@@ -121,7 +121,6 @@ export class IndicatorsComponent implements OnInit {
             leftCol: [experience.performance[2]],
           }
         );
-        console.log(this.data);
       },
       error: (err: any) => {
         this.DataService.setLoading(false);
