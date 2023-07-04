@@ -245,12 +245,7 @@
               "
               *ngFor="let value of section.values"
             >
-              <span *ngIf="value / 100 > 0">
-                {{ value / 100 | percent : "1.2" }}
-              </span>
-              <span *ngIf="value / 100 <= 0">
-                {{ value / 100 | percent }}
-              </span>
+              {{ formateValue(value) }}
             </span>
           </div>
         </div>
@@ -301,12 +296,7 @@
               "
               *ngFor="let value of section.values"
             >
-              <span *ngIf="value / 100 > 0">
-                {{ value / 100 | percent : "1.2" }}
-              </span>
-              <span *ngIf="value / 100 <= 0">
-                {{ value / 100 | percent }}
-              </span>
+              {{ formateValue(value) }}
             </span>
           </div>
         </div>
