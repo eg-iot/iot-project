@@ -12,10 +12,10 @@
 
   .logo {
     transition: 0.3s;
-    width: 200px;
+    width: 150px;
     cursor: pointer;
     img {
-      width: 200px;
+      width: 150px;
       object-fit: cover;
       transition: 0.3s;
     }
@@ -37,7 +37,7 @@
     background-color: $primary_bg_color;
     z-index: 4;
     &.toggled {
-      top: 135px;
+      top: 110px;
       opacity: 1;
     }
     a {
@@ -90,7 +90,7 @@
     flex-wrap: wrap-reverse !important;
     justify-content: center !important;
     &.toggled {
-      top: 110px !important;
+      top: 95px !important;
     }
     .survey-link {
       margin-top: 12px !important;
@@ -98,10 +98,10 @@
   }
 
   .logo {
-    width: 150px !important;
+    width: 120px !important;
     cursor: pointer;
     img {
-      width: 150px !important;
+      width: 120px !important;
       object-fit: cover;
     }
   }
