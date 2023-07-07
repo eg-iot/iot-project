@@ -9,6 +9,7 @@ import { ModalComponent } from './modal/modal.component';
 import { DiscardChangesComponent } from './cells/discard-changes/discard-changes.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ClickOutsideDirective } from '../directives/click-outside.directive';
+import { TooltipDirective } from '../directives/tooltip.directive';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -19,6 +20,7 @@ import { ClickOutsideDirective } from '../directives/click-outside.directive';
     DiscardChangesComponent,
     LoaderComponent,
     ClickOutsideDirective,
+    TooltipDirective
   ],
   imports: [CommonModule, RouterModule],
   exports: [HeaderComponent, CellsComponent, LoaderComponent],
