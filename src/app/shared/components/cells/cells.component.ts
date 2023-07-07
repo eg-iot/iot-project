@@ -78,8 +78,9 @@ export class CellsComponent {
     this.modalService.toggleModal(this.modalId);
   }
 
-  getBiggestValue(array: number[]) {
-    return Math.max(...array);
+  getBiggestValue(array: any[]) {
+    const values = array.map((data) => data.value);
+    return Math.max(...values);
   }
 
   formateValue(value: number) {
