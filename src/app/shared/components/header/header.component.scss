@@ -11,11 +11,13 @@
   }
 
   .logo {
+    transition: 0.3s;
     width: 200px;
     cursor: pointer;
     img {
       width: 200px;
       object-fit: cover;
+      transition: 0.3s;
     }
   }
   .nav-links {
@@ -87,9 +89,20 @@
   .nav-links {
     flex-wrap: wrap-reverse !important;
     justify-content: center !important;
-
+    &.toggled {
+      top: 110px !important;
+    }
     .survey-link {
       margin-top: 12px !important;
+    }
+  }
+
+  .logo {
+    width: 150px !important;
+    cursor: pointer;
+    img {
+      width: 150px !important;
+      object-fit: cover;
     }
   }
 }
