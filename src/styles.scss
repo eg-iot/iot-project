@@ -91,27 +91,3 @@ input {
   }
 }
 
-.ng-tooltip {
-  position: absolute;
-  background-color: #363636;
-  width: fit-content;
-  padding: 0 12px;
-  white-space: nowrap;
-  color: #fff;
-  z-index: 80;
-  font-size: 14px;
-  border-radius: 4px;
-  &-top {
-    top: -35px;
-
-    &::after {
-      content: "";
-      position: absolute;
-      border-width: 7px;
-      border-color: #363636 transparent transparent transparent;
-      border-style: solid;
-      bottom: -14px;
-      left: 40%;
-    }
-  }
-}

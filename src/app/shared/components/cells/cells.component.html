@@ -244,10 +244,7 @@
                   : 'unset'
               "
               *ngFor="let value of section.values"
-              appTooltip
               [tooltip]="value.label + ' ' + value.metric"
-              [placement]="'top'"
-              delay="500"
             >
               {{ formateValue(value.value) }}
             </span>
@@ -298,10 +295,7 @@
                   ? data.headerColor
                   : 'unset'
               "
-              appTooltip
               [tooltip]="value.label + ' ' + value.metric"
-              [placement]="'top'"
-              delay="500"
               *ngFor="let value of section.values"
             >
               {{ formateValue(value.value) }}
