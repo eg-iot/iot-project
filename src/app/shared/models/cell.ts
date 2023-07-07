@@ -14,6 +14,6 @@ export interface IData {
 interface CellData {
   code: string;
   label: string;
-  values: number[];
+  values: any[];
   tempWebsite: string;
 }
