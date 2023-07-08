@@ -28,6 +28,12 @@ export class DataService {
       }
     }
   `;
+
+  private readonly EMAIL_QUERY = gql`
+    mutation GetInTouch($name: String!, $email: String!, $message: String!) {
+      getInTouch(data: { name: $name, email: $email, message: $message })
+    }
+  `;
   constructor(
     private apollo: Apollo,
     private ExtractionService: ExtractionService
@@ -242,5 +248,16 @@ export class DataService {
           };
         })
       );
+  }
+
+  sendEmail(data: { name: string; email: string; message: string }) {
+    return this.apollo.mutate({
+      mutation: this.EMAIL_QUERY,
+      variables: {
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      },
+    });
   }
 }

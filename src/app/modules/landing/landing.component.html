@@ -94,18 +94,42 @@
     </div>
     <div class="form-container">
       <p class="bold font-18">GET IN TOUCH</p>
-      <form>
+      <form [formGroup]="emailForm">
         <div class="form-holder">
-          <input type="text" placeholder="Name:" />
-          <input type="email" placeholder="Email:" />
+          <input
+            type="text"
+            placeholder="Name:"
+            formControlName="name"
+            dir="auto"
+            [ngClass]="{
+              'invalid-input':
+                emailForm.get('name')?.invalid && emailForm.get('name')?.touched
+            }"
+          />
+          <input
+            type="email"
+            placeholder="Email:"
+            formControlName="email"
+            [ngClass]="{
+              'invalid-input':
+                emailForm.get('email')?.invalid &&
+                emailForm.get('email')?.touched
+            }"
+          />
           <textarea
             name="message"
             id="message"
             cols="30"
             placeholder="Message:"
+            formControlName="message"
+            [ngClass]="{
+              'invalid-input':
+              emailForm.get('message')?.invalid && emailForm.get('message')?.touched
+            }"
+            dir="auto"
           ></textarea>
         </div>
-        <span class="button">SUBMIT</span>
+        <span class="button" (click)="onEmailSent()">SUBMIT</span>
       </form>
     </div>
   </section>

@@ -1,5 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
+import { DataService } from 'src/app/core/services/data.service';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { cardAnimation } from 'src/app/shared/animations/cards-animation';
+import { HttpErrorResponse } from '@angular/common/http';
 interface ICard {
   title: string;
   images: { url: string; isActive: boolean }[];
@@ -50,7 +54,20 @@ export class LandingComponent implements OnInit {
     },
   ];
 
+  emailForm!: FormGroup;
+  constructor(
+    private DataService: DataService,
+    private ToastrService: ToastrService
+  ) {}
   ngOnInit(): void {
+    this.emailForm = new FormGroup({
+      name: new FormControl<string>('', Validators.required),
+      email: new FormControl<string>('', [
+        Validators.email,
+        Validators.required,
+      ]),
+      message: new FormControl<string>('', Validators.required),
+    });
     this.cards.forEach((card) => (card.activeIndex = 0));
     this.cards.forEach((card) => (card.images[0].isActive = true));
 
@@ -65,5 +82,29 @@ export class LandingComponent implements OnInit {
         card.images[card.activeIndex as number].isActive = true;
       });
     }, 4000);
+  }
+
+  onEmailSent() {
+    if (this.emailForm.invalid) {
+      this.ToastrService.warning('Please fill the required fields!');
+      this.emailForm.markAllAsTouched();
+      return;
+    }
+    const formValue = this.emailForm.value;
+    this.DataService.setLoading(true);
+    this.DataService.sendEmail(formValue).subscribe({
+      next: (res: any) => {
+        this.ToastrService.success(res.data.getInTouch);
+      },
+      error: (err) => {
+        if (err instanceof HttpErrorResponse)
+          this.ToastrService.error(err.error.message);
+        else this.ToastrService.error(err);
+      },
+      complete: () => {
+        this.DataService.setLoading(false);
+        this.emailForm.reset();
+      },
+    });
   }
 }
