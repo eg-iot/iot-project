@@ -244,7 +244,7 @@
                   : 'unset'
               "
               *ngFor="let value of section.values"
-              [tooltip]="value.label + ' ' + value.metric"
+              [tooltip]="value.label | titlecase"
             >
               {{ formateValue(value.value) }}
             </span>
@@ -295,7 +295,7 @@
                   ? data.headerColor
                   : 'unset'
               "
-              [tooltip]="value.label + ' ' + value.metric"
+              [tooltip]="value.label | titlecase"
               *ngFor="let value of section.values"
             >
               {{ formateValue(value.value) }}

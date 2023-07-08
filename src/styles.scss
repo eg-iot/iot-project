@@ -61,9 +61,9 @@ input {
   }
 
   &.invalid-input {
-    border-color: rgb(233, 21, 21);
+    border-color: rgb(233, 21, 21) !important;
     &:focus {
-      border-color: rgb(233, 21, 21);
+      border-color: rgb(233, 21, 21) !important;
     }
   }
 }
