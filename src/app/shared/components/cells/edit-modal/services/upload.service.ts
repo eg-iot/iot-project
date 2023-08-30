@@ -1,4 +1,3 @@
-import { ModalService } from './../../../modal/services/modal.service';
 import { DataService } from './../../../../../core/services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -18,7 +17,6 @@ export class UploadService {
     private HttpClient: HttpClient,
     private ToastrService: ToastrService,
     private DataService: DataService,
-    private ModalService: ModalService
   ) {}
 
   changeFileType(type: string) {
