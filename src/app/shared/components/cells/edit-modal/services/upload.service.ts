@@ -13,7 +13,7 @@ export class UploadService {
   );
   private fileType: BehaviorSubject<string> = new BehaviorSubject('');
   private readonly url: string =
-    'https://iot-project2023-backend.onrender.com/upload';
+    'https://2qte3fbxnz.us-east-1.awsapprunner.com/upload';
   constructor(
     private HttpClient: HttpClient,
     private ToastrService: ToastrService,
