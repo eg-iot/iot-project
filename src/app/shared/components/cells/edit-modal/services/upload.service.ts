@@ -12,7 +12,7 @@ export class UploadService {
   );
   private fileType: BehaviorSubject<string> = new BehaviorSubject('');
   private readonly url: string =
-    'https://2qte3fbxnz.us-east-1.awsapprunner.com/upload';
+    'http://54.81.146.232:3000/upload';
   constructor(
     private HttpClient: HttpClient,
     private ToastrService: ToastrService,
