@@ -7,7 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
-const uri: string = 'http://54.81.146.232:3000/graphql'; // <-- add the URL of the GraphQL server here
+const uri: string = 'https://iot.ahmedelgaidi.com/graphql'; // <-- add the URL of the GraphQL server here
 const link = createHttpLink({ uri });
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('access-token');
